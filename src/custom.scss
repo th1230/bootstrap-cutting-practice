@@ -1,0 +1,99 @@
+@import "../node_modules/bootstrap/scss/functions";
+
+// 覆蓋預設變數
+$primary: #fa592f;
+$secondary: #9f0000;
+
+@import "../node_modules/bootstrap/scss/variables";
+
+$font-sizes: map-merge(
+  $font-sizes,
+  (
+    7: $font-size-base * 0.8,
+    8: $font-size-base * 0.7,
+  )
+);
+
+$utilities-text-colors: map-merge(
+  $utilities-text-colors,
+  (
+    "gray-700": $gray-700,
+  )
+);
+
+$utilities-bg-colors: map-merge(
+  $utilities-bg-colors,
+  (
+    "line": #f87160,
+    "gray-200": $gray-200,
+  )
+);
+
+@import "../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "width":
+      map-merge(
+        map-get($utilities, "width"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "width"), values),
+              (
+                "2px": 2px,
+                "50px": 50px,
+                "200px": 200px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "height":
+      map-merge(
+        map-get($utilities, "height"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "height"), values),
+              (
+                "80px": 80px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      responsive: true,
+      class: cursor,
+      values: pointer,
+    ),
+    "transform": (
+      property: transform,
+      responsive: true,
+      values: (
+        "rotate-180": rotate(180deg),
+      ),
+    ),
+    "translate": (
+      property: translate,
+      responsive: true,
+      values: (
+        "transform": transform 0.2s,
+      ),
+    ),
+  )
+);
+@import "../node_modules/bootstrap/scss/bootstrap";
